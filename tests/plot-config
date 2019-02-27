@@ -1,0 +1,21 @@
+# Set linestyle 1 to blue (#0060ad)
+
+set style line 1 \
+    linecolor rgb '#0060ad' \
+    linetype 1 linewidth 4 \
+    #pointtype 7 pointsize 1.5
+
+set xlabel "hilbert degree"
+set ylabel "seconds"
+show xlabel
+show ylabel
+set xtics 1
+#set title "results for assembler"
+
+set term png
+set output "result-plot.png"
+# for svg code
+#set terminal svg
+#plot 'points-assembler' with lines linestyle 1
+plot "c-vs-ass-output" using 1:2 title 'plain c' with lines, \
+"c-vs-ass-output" using 1:3 title 'assembler' with lines
